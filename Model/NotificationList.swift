@@ -16,8 +16,8 @@ class NotificationList{
     var notificationsOld = [Notification]()
     
     func add(toAdd: Notification){
-        //notificationsNewUrgency.append(toAdd)
-        //notificationsNewDate.append(toAdd)
+        notificationsNewUrgency.append(toAdd)
+        notificationsNewDate.append(toAdd)
         
         //if the time is later, add it to the notifications queue IN ORDER
         
@@ -74,16 +74,6 @@ class NotificationList{
             notificationsNewDate.remove(at: index)
         }
         
-    }
-    
-    func printArrays(){
-        for note in notificationsNewUrgency{
-            print(note)
-        }
-        
-        for note in notificationsNewDate{
-            print(note)
-        }
     }
     
 }

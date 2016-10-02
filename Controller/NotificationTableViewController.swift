@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  NotificationTableViewController.swift
 //  HealthHack NotificationCenter
 //
 //  Created by Matt Santa on 10/1/16.
