@@ -43,8 +43,8 @@
 			isa = PBXGroup;
 			children = (
 				330B4BD51DA0C8690075DB33 /* View */,
-				330B4BD31DA0C8690075DB33 /* Controller */,
 				330B4BD41DA0C8690075DB33 /* Model */,
+				330B4BD31DA0C8690075DB33 /* Controller */,
 				33E3B2311DA08B6D006B9036 /* HealthHack NotificationCenter */,
 				33E3B2301DA08B6D006B9036 /* Products */,
 			);
