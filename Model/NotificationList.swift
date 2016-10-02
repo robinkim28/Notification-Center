@@ -15,29 +15,29 @@ class NotificationList{
     var notificationsOld = [Notification]()
     
     func add(toAdd: Notification){
-        //if timetonotify is later, add it to the notifications queue IN ORDER
-        //if timetonotify is now, insert(toAdd: toAdd)
-        
-        switch NSDate().compare(toAdd.timeToNotify) {
-        case .orderedAscending     :
-            queue.append(toAdd); queue.sort{ $0.timeToNotify < $1.timeToNotify };
-            toAdd.person.noteList.queue.append(toAdd);
-            toAdd.person.noteList.queue.sort{ $0.timeToNotify < $1.timeToNotify };
-            
-        case .orderedDescending    :
-            notificationsNewDate.append(toAdd);
-            notificationsNewUrgency.append(toAdd);
-            notificationsNewUrgency.sort { $0.urgency.rawValue == $1.urgency.rawValue ? $0.timeToNotify < $1.timeToNotify : $0.urgency.rawValue < $1.urgency.rawValue };
-            notificationsNewDate.sort { $0.urgency == $1.urgency ? $0.timeToNotify < $1.timeToNotify : $0.urgency.rawValue < $1.urgency.rawValue };
-            toAdd.person.noteList.notificationsNewDate.append(toAdd)
-            toAdd.person.noteList.notificationsNewDate.sort { $0.urgency == $1.urgency ? $0.timeToNotify < $1.timeToNotify : $0.urgency.rawValue < $1.urgency.rawValue };
-        case .orderedSame          :
-            notificationsNewDate.append(toAdd);
-            notificationsNewUrgency.append(toAdd);
-            notificationsNewUrgency.sort { $0.urgency.rawValue == $1.urgency.rawValue ? $0.timeToNotify < $1.timeToNotify : $0.urgency.rawValue < $1.urgency.rawValue };
-            notificationsNewDate.sort { $0.urgency == $1.urgency ? $0.timeToNotify < $1.timeToNotify : $0.urgency.rawValue < $1.urgency.rawValue };
-            toAdd.person.noteList.notificationsNewDate.append(toAdd)
-            toAdd.person.noteList.notificationsNewDate.sort { $0.urgency == $1.urgency ? $0.timeToNotify < $1.timeToNotify : $0.urgency.rawValue < $1.urgency.rawValue };
+        if(toAdd.subscribe){
+            if toAdd is Prescription {
+                if (toAdd as! Prescription).repeatNum > 0 {
+                    let stop = (toAdd as! Prescription).repeatNum
+                    var temp = toAdd
+                    for _ in 1...stop {
+                        queue.append(temp)
+                        queue.sort{ $0.timeToNotify < $1.timeToNotify }
+                        temp.person.noteList.queue.append(temp)
+                        temp.person.noteList.queue.sort{ $0.timeToNotify < $1.timeToNotify }
+                        temp = Prescription(copyFrom: (temp as! Prescription))
+                    }
+                }
+            } else {
+                notificationsNewDate.append(toAdd)
+                notificationsNewUrgency.append(toAdd)
+                
+                notificationsNewUrgency.sort { $0.urgency.rawValue == $1.urgency.rawValue ? $0.timeToNotify < $1.timeToNotify : $0.urgency.rawValue < $1.urgency.rawValue }
+                notificationsNewDate.sort { $0.timeToNotify > $1.timeToNotify }
+                
+                toAdd.person.noteList.notificationsNewDate.append(toAdd)
+                toAdd.person.noteList.notificationsNewDate.sort { $0.timeToNotify > $1.timeToNotify }
+            }
         }
     }
     
@@ -50,34 +50,34 @@ class NotificationList{
             switch NSDate().compare(note.timeToNotify) {
             case .orderedAscending     : break
             case .orderedDescending    :
-                queue.filter{$0 != note}
-                note.person.noteList.queue.filter{$0 != note}
+                queue.remove(at: 0)
+                note.person.noteList.queue.remove(at: 0)
                 queue.sort{ $0.timeToNotify < $1.timeToNotify };
                 
                 notificationsNewDate.append(note);
                 notificationsNewUrgency.append(note);
                 notificationsNewUrgency.sort { $0.urgency.rawValue == $1.urgency.rawValue ? $0.timeToNotify < $1.timeToNotify : $0.urgency.rawValue < $1.urgency.rawValue };
-                notificationsNewDate.sort { $0.urgency == $1.urgency ? $0.timeToNotify < $1.timeToNotify : $0.urgency.rawValue < $1.urgency.rawValue };
+                notificationsNewDate.sort { $0.timeToNotify > $1.timeToNotify };
                 
-                
-                note.person.noteList.notificationsNewDate.sort { $0.urgency == $1.urgency ? $0.timeToNotify < $1.timeToNotify : $0.urgency.rawValue < $1.urgency.rawValue };
+                note.person.noteList.notificationsNewDate.append(note)
+                note.person.noteList.notificationsNewDate.sort { $0.timeToNotify > $1.timeToNotify };
             case .orderedSame          :
-                queue.filter{$0 != note}
-                note.person.noteList.queue.filter{$0 != note}
+                queue.remove(at: 0)
+                note.person.noteList.queue.remove(at: 0)
                 queue.sort{ $0.timeToNotify < $1.timeToNotify };
-                
                 
                 notificationsNewDate.append(note);
                 notificationsNewUrgency.append(note);
                 notificationsNewUrgency.sort { $0.urgency.rawValue == $1.urgency.rawValue ? $0.timeToNotify < $1.timeToNotify : $0.urgency.rawValue < $1.urgency.rawValue };
-                notificationsNewDate.sort { $0.urgency == $1.urgency ? $0.timeToNotify < $1.timeToNotify : $0.urgency.rawValue < $1.urgency.rawValue };
+                notificationsNewDate.sort { $0.timeToNotify > $1.timeToNotify };
                 
-                note.person.noteList.notificationsNewDate.sort { $0.urgency == $1.urgency ? $0.timeToNotify < $1.timeToNotify : $0.urgency.rawValue < $1.urgency.rawValue };
+                note.person.noteList.notificationsNewDate.append(note)
+                note.person.noteList.notificationsNewDate.sort { $0.timeToNotify > $1.timeToNotify };
             }
         }
     }
     
-    func checked(toRemove: Notification){
+    public func checked(toRemove: Notification){
         //removes in urgency notifications array
         var index = 0
         for note in notificationsNewUrgency {
@@ -90,13 +90,6 @@ class NotificationList{
         
         if index < notificationsNewUrgency.count {
             notificationsNewUrgency.remove(at: index)
-            
-            //add new Prescription thing if needed
-            if toRemove is Prescription{
-                if (toRemove as! Prescription).repeatNum != 0 {
-                    add(toAdd: Prescription(copyFrom: toRemove as! Prescription))
-                }
-            }
         }
         
         //removes in date notifications array
@@ -111,16 +104,29 @@ class NotificationList{
         
         if index < notificationsNewDate.count {
             notificationsNewDate.remove(at: index)
+            notificationsOld.append(toRemove)
+            notificationsOld.sort { $0.timeToNotify > $1.timeToNotify };
             
-            //add new Prescription thing if needed
-            if toRemove is Prescription{
-                if (toRemove as! Prescription).repeatNum != 0 {
-                    add(toAdd: Prescription(copyFrom: toRemove as! Prescription))
-                }
+        }
+        
+        //removes in the patient's notifications array
+        index = 0
+        for note in toRemove.person.noteList.notificationsNewDate {
+            if toRemove !== note {
+                index = index + 1
+            } else {
+                break
             }
         }
         
+        if index < toRemove.person.noteList.notificationsNewDate.count {
+            toRemove.person.noteList.notificationsNewDate.remove(at: index)
+            toRemove.person.noteList.notificationsOld.append(toRemove)
+            toRemove.person.noteList.notificationsOld.sort { $0.timeToNotify > $1.timeToNotify };
+        }
+        
     }
+    
     func print(){
         dump(self)
     }

@@ -8,15 +8,15 @@
 
 import UIKit
 
-class PatientNotificationViewController: UIViewController {
+class PatientNotificationViewController: UITableViewController {
 
     var notificationsNew: [Notification]!
     var notificationsOld: [Notification]!
     var patient: Patient!
-    
+
     
     override func viewWillAppear(_ animated: Bool) {
-        notificationsNew = patient.noteList.notificationsNewUrgency
+        notificationsNew = patient.noteList.notificationsNewDate
         notificationsOld = patient.noteList.notificationsOld
         
         tableView!.reloadData()
@@ -24,12 +24,12 @@ class PatientNotificationViewController: UIViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        tableView.rowHeight = 200
+        tableView.rowHeight = 75
         
         let cell: CustomNotificationTableCell = tableView.dequeueReusableCell(withIdentifier: "CustomNotificationTableCell") as! CustomNotificationTableCell
         
         cell.checkButton.tag = indexPath.row
-        cell.checkButton.addTarget(self, action: completeNotification(checkButton), for: UIControlEvents.allTouchEvents)
+        cell.checkButton.addTarget(self, action: #selector(NotificationTableViewController.completeNotification(_:)), for: UIControlEvents.allTouchEvents)
         
         
         if ((indexPath as NSIndexPath).row < notificationsNew.count) {
@@ -44,12 +44,13 @@ class PatientNotificationViewController: UIViewController {
                 title = "Not done"
             }
             
-            cell.checkButton.setTitle = title
+            cell.checkButton.setTitle(title, for: UIControlState.normal)
             
         } else if ((indexPath as NSIndexPath).row == notificationsNew.count) {
             
-            cell.descriptionLabel!.text = "Completed"
+            cell.descriptionLabel!.text = " "
             cell.checkButton.isHidden = true
+        
             
         } else {
             cell.descriptionLabel!.text = self.notificationsOld[(indexPath as NSIndexPath).row - notificationsNew.count + 1].descriptionLong
@@ -61,7 +62,7 @@ class PatientNotificationViewController: UIViewController {
                 title = "Not done"
             }
             
-            cell.checkButton.setTitle = title
+            cell.checkButton.setTitle(title, for: UIControlState.normal)
             
         }
         
@@ -73,12 +74,12 @@ class PatientNotificationViewController: UIViewController {
     }
     
     @IBAction func completeNotification(_ sender: AnyObject) {
-        var index = sender.tag
+        let index = sender.tag
         
         if (index! < notificationsNew.count) {
-            checked(toRemove: notificationsNew[index])
+            (UIApplication.shared.delegate as! AppDelegate).notifications.checked(toRemove: notificationsNew[index!])
         } else {
-            checked(toRemove: notificationsOld[index - notificationsNew.count - 1])
+            (UIApplication.shared.delegate as! AppDelegate).notifications.checked(toRemove: notificationsOld[index! - notificationsNew.count - 1])
         }
         
         tableView.reloadData()

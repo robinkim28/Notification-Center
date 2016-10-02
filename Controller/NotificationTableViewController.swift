@@ -19,19 +19,19 @@ class NotificationTableViewController: UITableViewController {
         notificationsNew = (UIApplication.shared.delegate as! AppDelegate).notifications.notificationsNewUrgency
         notificationsOld = (UIApplication.shared.delegate as! AppDelegate).notifications.notificationsOld
         
-        patientsList = (UIApplication.shared.delegate as! AppDelegate).patients
+        patientsList = (UIApplication.shared.delegate as! AppDelegate).patients.patientList
         
         tableView!.reloadData()
         
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        tableView.rowHeight = 200
+        tableView.rowHeight = 50
         
         let cell: CustomNotificationTableCell = tableView.dequeueReusableCell(withIdentifier: "CustomNotificationTableCell") as! CustomNotificationTableCell
         
         cell.checkButton.tag = indexPath.row
-        cell.checkButton.addTarget(self, action: completeNotification(checkButton), for: UIControlEvents.allTouchEvents)
+        cell.checkButton.addTarget(self, action: #selector(NotificationTableViewController.completeNotification(_:)), for: UIControlEvents.allTouchEvents)
         
         
         if ((indexPath as NSIndexPath).row < notificationsNew.count) {
@@ -46,7 +46,7 @@ class NotificationTableViewController: UITableViewController {
                 title = "Not done"
             }
             
-            cell.checkButton.setTitle = title
+            cell.checkButton.setTitle(title, for: UIControlState.normal)
             
         } else if ((indexPath as NSIndexPath).row == notificationsNew.count) {
             
@@ -63,7 +63,7 @@ class NotificationTableViewController: UITableViewController {
                 title = "Not done"
             }
             
-            cell.checkButton.setTitle = title
+            cell.checkButton.setTitle(title, for: UIControlState.normal)
             
         }
         
@@ -75,12 +75,12 @@ class NotificationTableViewController: UITableViewController {
     }
     
     @IBAction func completeNotification(_ sender: AnyObject) {
-        var index = sender.tag
+        let index = sender.tag
         
         if (index! < notificationsNew.count) {
-            checked(toRemove: notificationsNew[index], pl: patientsList)
+            (UIApplication.shared.delegate as! AppDelegate).notifications.checked(toRemove: notificationsNew[index!])
         } else {
-            checked(toRemove: notificationsOld[index - notificationsNew.count - 1], pl: patientsList)
+             (UIApplication.shared.delegate as! AppDelegate).notifications.checked(toRemove: notificationsOld[index! - notificationsNew.count - 1])
         }
         
         tableView.reloadData()

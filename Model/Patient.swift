@@ -11,7 +11,7 @@ import Foundation
 class Patient: CustomStringConvertible{
     let lastName: String;
     let firstName: String;
-    let age: Int;
+    let age: String;
     let roomNum: String;
     var noteList: NotificationList;
     
@@ -20,7 +20,7 @@ class Patient: CustomStringConvertible{
         
         self.lastName = lastName;
         self.firstName = firstName;
-        self.age = age;
+        self.age = String(age);
         
         let dateFormatter = DateFormatter();
         dateFormatter.dateFormat = "yyyy-MM-dd";
