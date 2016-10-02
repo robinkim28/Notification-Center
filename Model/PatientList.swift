@@ -19,9 +19,9 @@ class PatientList{
         self.patientList.append(newPatient);
         patientList.sort{ $0.lastName < $1.lastName};
     }
-    
     func print(){
         dump(self)
     }
+    
     
 }

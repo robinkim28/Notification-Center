@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Notification: CustomStringConvertible {
+class Notification: CustomStringConvertible, Equatable {
     enum UrgencyLevels: Int{
         case red = 0, yellow, green
     }
@@ -40,5 +40,8 @@ class Notification: CustomStringConvertible {
     
     var descriptionShort: String {
         return description
+    }
+    static func ==(left: Notification, right: Notification) -> Bool {
+        return left.dateAndTimeCreated == right.dateAndTimeCreated
     }
 }
