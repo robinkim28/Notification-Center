@@ -8,8 +8,7 @@
 
 import Foundation
 
-class Prescription: Notification {
-    let actionToBeTaken: Bool
+class Prescription: Notification{
     let dosage: Double
     let medicine: String
     
@@ -21,8 +20,7 @@ class Prescription: Notification {
     let repeatTimeHour: Int
     let repeatTimeMinute: Int
     
-    init(action: Bool, numRepeat: Int, repeatHour: Int, repeatMinute: Int, dosage: Double, medicine: String, urgency: UrgencyLevels){
-        actionToBeTaken = action
+    init(person: Patient, urgency: UrgencyLevels, numRepeat: Int, repeatHour: Int, repeatMinute: Int, dosage: Double, medicine: String){
         repeatNum = numRepeat
         repeatTimeHour = repeatHour
         repeatTimeMinute = repeatMinute
@@ -31,12 +29,11 @@ class Prescription: Notification {
         date = calendar.date(byAdding: .hour, value: repeatTimeHour, to: NSDate() as Date)!
         date = calendar.date(byAdding: .minute, value: repeatTimeMinute, to: date)!
         dateAndTimeNext =  date
-        super.init(notify: true, urgentLevel: urgency, notifyTime: dateAndTimeNext)
+        super.init(person: person, notify: true, urgentLevel: urgency, notifyTime: dateAndTimeNext)
     }
     
     init(copyFrom: Prescription){
         repeatNum = copyFrom.repeatNum - 1
-        actionToBeTaken = copyFrom.actionToBeTaken
         repeatTimeHour = copyFrom.repeatTimeHour
         repeatTimeMinute = copyFrom.repeatTimeMinute
         self.dosage = copyFrom.dosage
@@ -44,6 +41,18 @@ class Prescription: Notification {
         date = calendar.date(byAdding: .hour, value: repeatTimeHour, to: copyFrom.dateAndTimeNext as Date)!
         date = calendar.date(byAdding: .minute, value: repeatTimeMinute, to: date)!
         dateAndTimeNext =  date
-        super.init(notify: true, urgentLevel: copyFrom.urgency, notifyTime: dateAndTimeNext)
+        super.init(person: copyFrom.person, notify: true, urgentLevel: copyFrom.urgency, notifyTime: dateAndTimeNext)
+    }
+    
+    override var description: String {
+        return "\(person.description) in room \(person.roomNum) needs an order of \(dosage) mg of \(medicine)"
+    }
+    
+    override var descriptionShort: String {
+        return description
+    }
+    
+    override var descriptionLong: String {
+        return description
     }
 }
