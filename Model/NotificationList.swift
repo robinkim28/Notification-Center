@@ -21,17 +21,22 @@ class NotificationList{
         switch NSDate().compare(toAdd.timeToNotify) {
         case .orderedAscending     :
             queue.append(toAdd); queue.sort{ $0.timeToNotify < $1.timeToNotify };
+            toAdd.person.noteList.queue.append(toAdd);
+            toAdd.person.noteList.queue.sort{ $0.timeToNotify < $1.timeToNotify };
+            
         case .orderedDescending    :
             notificationsNewDate.append(toAdd);
             notificationsNewUrgency.append(toAdd);
             notificationsNewUrgency.sort { $0.urgency.rawValue == $1.urgency.rawValue ? $0.timeToNotify < $1.timeToNotify : $0.urgency.rawValue < $1.urgency.rawValue };
             notificationsNewDate.sort { $0.urgency == $1.urgency ? $0.timeToNotify < $1.timeToNotify : $0.urgency.rawValue < $1.urgency.rawValue };
+            toAdd.person.noteList.notificationsNewDate.append(toAdd)
             toAdd.person.noteList.notificationsNewDate.sort { $0.urgency == $1.urgency ? $0.timeToNotify < $1.timeToNotify : $0.urgency.rawValue < $1.urgency.rawValue };
         case .orderedSame          :
             notificationsNewDate.append(toAdd);
             notificationsNewUrgency.append(toAdd);
             notificationsNewUrgency.sort { $0.urgency.rawValue == $1.urgency.rawValue ? $0.timeToNotify < $1.timeToNotify : $0.urgency.rawValue < $1.urgency.rawValue };
             notificationsNewDate.sort { $0.urgency == $1.urgency ? $0.timeToNotify < $1.timeToNotify : $0.urgency.rawValue < $1.urgency.rawValue };
+            toAdd.person.noteList.notificationsNewDate.append(toAdd)
             toAdd.person.noteList.notificationsNewDate.sort { $0.urgency == $1.urgency ? $0.timeToNotify < $1.timeToNotify : $0.urgency.rawValue < $1.urgency.rawValue };
         }
     }
@@ -45,20 +50,28 @@ class NotificationList{
             switch NSDate().compare(note.timeToNotify) {
             case .orderedAscending     : break
             case .orderedDescending    :
-                queue.filter() {$0 != note}
+                queue.filter{$0 != note}
+                note.person.noteList.queue.filter{$0 != note}
                 queue.sort{ $0.timeToNotify < $1.timeToNotify };
+                
                 notificationsNewDate.append(note);
                 notificationsNewUrgency.append(note);
                 notificationsNewUrgency.sort { $0.urgency.rawValue == $1.urgency.rawValue ? $0.timeToNotify < $1.timeToNotify : $0.urgency.rawValue < $1.urgency.rawValue };
                 notificationsNewDate.sort { $0.urgency == $1.urgency ? $0.timeToNotify < $1.timeToNotify : $0.urgency.rawValue < $1.urgency.rawValue };
+                
+                
                 note.person.noteList.notificationsNewDate.sort { $0.urgency == $1.urgency ? $0.timeToNotify < $1.timeToNotify : $0.urgency.rawValue < $1.urgency.rawValue };
             case .orderedSame          :
-                queue.filter() {$0 != note}
+                queue.filter{$0 != note}
+                note.person.noteList.queue.filter{$0 != note}
                 queue.sort{ $0.timeToNotify < $1.timeToNotify };
+                
+                
                 notificationsNewDate.append(note);
                 notificationsNewUrgency.append(note);
                 notificationsNewUrgency.sort { $0.urgency.rawValue == $1.urgency.rawValue ? $0.timeToNotify < $1.timeToNotify : $0.urgency.rawValue < $1.urgency.rawValue };
                 notificationsNewDate.sort { $0.urgency == $1.urgency ? $0.timeToNotify < $1.timeToNotify : $0.urgency.rawValue < $1.urgency.rawValue };
+                
                 note.person.noteList.notificationsNewDate.sort { $0.urgency == $1.urgency ? $0.timeToNotify < $1.timeToNotify : $0.urgency.rawValue < $1.urgency.rawValue };
             }
         }
