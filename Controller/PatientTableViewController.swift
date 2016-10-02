@@ -32,9 +32,18 @@ class PatientTableViewController: UITableViewController {
         return cell
     }
     
+    
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return patients.count
     }
-
-
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        let patientSpecificController = self.storyboard!.instantiateViewControllerWithIdentifier("PatientNotificationViewController") as! PatientNotificationViewController
+        
+        patientSpecificController.patient = self.patients[indexPath.row]
+        self.navigationController!.pushViewController(patientSpecificController, animated: true)
+    }
+    
 }
