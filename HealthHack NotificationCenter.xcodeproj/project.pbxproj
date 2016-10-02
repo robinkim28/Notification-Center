@@ -7,27 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		335527951DA0A07B00F50425 /* CustomNotificationTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335527941DA0A07B00F50425 /* CustomNotificationTableCell.swift */; };
-		335527971DA0A72100F50425 /* CustomPatientTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335527961DA0A72100F50425 /* CustomPatientTableCell.swift */; };
+		335527A11DA0BEE300F50425 /* Controller in Resources */ = {isa = PBXBuildFile; fileRef = 3355279F1DA0BEE300F50425 /* Controller */; };
+		335527A21DA0BEE300F50425 /* View in Resources */ = {isa = PBXBuildFile; fileRef = 335527A01DA0BEE300F50425 /* View */; };
 		33E3B2331DA08B6D006B9036 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E3B2321DA08B6D006B9036 /* AppDelegate.swift */; };
-		33E3B2351DA08B6D006B9036 /* NotificationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E3B2341DA08B6D006B9036 /* NotificationTableViewController.swift */; };
 		33E3B2381DA08B6D006B9036 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33E3B2361DA08B6D006B9036 /* Main.storyboard */; };
 		33E3B23A1DA08B6D006B9036 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33E3B2391DA08B6D006B9036 /* Assets.xcassets */; };
 		33E3B23D1DA08B6D006B9036 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33E3B23B1DA08B6D006B9036 /* LaunchScreen.storyboard */; };
-		33E3B2451DA08D83006B9036 /* PatientTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E3B2441DA08D83006B9036 /* PatientTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		335527941DA0A07B00F50425 /* CustomNotificationTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNotificationTableCell.swift; sourceTree = "<group>"; };
-		335527961DA0A72100F50425 /* CustomPatientTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPatientTableCell.swift; sourceTree = "<group>"; };
+		3355279F1DA0BEE300F50425 /* Controller */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Controller; path = "HealthHack NotificationCenter/Controller"; sourceTree = "<group>"; };
+		335527A01DA0BEE300F50425 /* View */ = {isa = PBXFileReference; lastKnownFileType = folder; name = View; path = "HealthHack NotificationCenter/View"; sourceTree = "<group>"; };
 		33E3B22F1DA08B6D006B9036 /* HealthHack NotificationCenter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HealthHack NotificationCenter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		33E3B2321DA08B6D006B9036 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		33E3B2341DA08B6D006B9036 /* NotificationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTableViewController.swift; sourceTree = "<group>"; };
 		33E3B2371DA08B6D006B9036 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		33E3B2391DA08B6D006B9036 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		33E3B23C1DA08B6D006B9036 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		33E3B23E1DA08B6D006B9036 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		33E3B2441DA08D83006B9036 /* PatientTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,27 +37,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		335527981DA0A73500F50425 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				335527961DA0A72100F50425 /* CustomPatientTableCell.swift */,
-				335527941DA0A07B00F50425 /* CustomNotificationTableCell.swift */,
-			);
-			name = View;
-			sourceTree = "<group>";
-		};
-		3355279A1DA0B5FE00F50425 /* Control */ = {
-			isa = PBXGroup;
-			children = (
-				33E3B2441DA08D83006B9036 /* PatientTableViewController.swift */,
-				33E3B2341DA08B6D006B9036 /* NotificationTableViewController.swift */,
-			);
-			name = Control;
-			sourceTree = "<group>";
-		};
 		33E3B2261DA08B6C006B9036 = {
 			isa = PBXGroup;
 			children = (
+				3355279F1DA0BEE300F50425 /* Controller */,
+				335527A01DA0BEE300F50425 /* View */,
 				33E3B2311DA08B6D006B9036 /* HealthHack NotificationCenter */,
 				33E3B2301DA08B6D006B9036 /* Products */,
 			);
@@ -78,8 +58,6 @@
 		33E3B2311DA08B6D006B9036 /* HealthHack NotificationCenter */ = {
 			isa = PBXGroup;
 			children = (
-				3355279A1DA0B5FE00F50425 /* Control */,
-				335527981DA0A73500F50425 /* View */,
 				33E3B2321DA08B6D006B9036 /* AppDelegate.swift */,
 				33E3B2361DA08B6D006B9036 /* Main.storyboard */,
 				33E3B2391DA08B6D006B9036 /* Assets.xcassets */,
@@ -151,6 +129,8 @@
 			files = (
 				33E3B23D1DA08B6D006B9036 /* LaunchScreen.storyboard in Resources */,
 				33E3B23A1DA08B6D006B9036 /* Assets.xcassets in Resources */,
+				335527A11DA0BEE300F50425 /* Controller in Resources */,
+				335527A21DA0BEE300F50425 /* View in Resources */,
 				33E3B2381DA08B6D006B9036 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -162,10 +142,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				33E3B2351DA08B6D006B9036 /* NotificationTableViewController.swift in Sources */,
-				335527971DA0A72100F50425 /* CustomPatientTableCell.swift in Sources */,
-				33E3B2451DA08D83006B9036 /* PatientTableViewController.swift in Sources */,
-				335527951DA0A07B00F50425 /* CustomNotificationTableCell.swift in Sources */,
 				33E3B2331DA08B6D006B9036 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
