@@ -19,17 +19,22 @@ class NotificationList{
         switch NSDate().compare(toAdd.timeToNotify) {
         case .orderedAscending     :
             queue.append(toAdd); queue.sort{ $0.timeToNotify < $1.timeToNotify };
+            toAdd.person.noteList.queue.append(toAdd);
+            toAdd.person.noteList.queue.sort{ $0.timeToNotify < $1.timeToNotify };
+
         case .orderedDescending    :
             notificationsNewDate.append(toAdd);
             notificationsNewUrgency.append(toAdd);
             notificationsNewUrgency.sort { $0.urgency.rawValue == $1.urgency.rawValue ? $0.timeToNotify < $1.timeToNotify : $0.urgency.rawValue < $1.urgency.rawValue };
             notificationsNewDate.sort { $0.urgency == $1.urgency ? $0.timeToNotify < $1.timeToNotify : $0.urgency.rawValue < $1.urgency.rawValue };
+            toAdd.person.noteList.notificationsNewDate.append(toAdd)
             toAdd.person.noteList.notificationsNewDate.sort { $0.urgency == $1.urgency ? $0.timeToNotify < $1.timeToNotify : $0.urgency.rawValue < $1.urgency.rawValue };
         case .orderedSame          :
             notificationsNewDate.append(toAdd);
             notificationsNewUrgency.append(toAdd);
             notificationsNewUrgency.sort { $0.urgency.rawValue == $1.urgency.rawValue ? $0.timeToNotify < $1.timeToNotify : $0.urgency.rawValue < $1.urgency.rawValue };
             notificationsNewDate.sort { $0.urgency == $1.urgency ? $0.timeToNotify < $1.timeToNotify : $0.urgency.rawValue < $1.urgency.rawValue };
+            toAdd.person.noteList.notificationsNewDate.append(toAdd)
             toAdd.person.noteList.notificationsNewDate.sort { $0.urgency == $1.urgency ? $0.timeToNotify < $1.timeToNotify : $0.urgency.rawValue < $1.urgency.rawValue };
         }
     }
@@ -43,20 +48,28 @@ class NotificationList{
             switch NSDate().compare(note.timeToNotify) {
             case .orderedAscending     : break
             case .orderedDescending    :
-                queue.filter() {$0 != note}
+                queue.filter{$0 != note}
+                note.person.noteList.queue.filter{$0 != note}
                 queue.sort{ $0.timeToNotify < $1.timeToNotify };
+                
                 notificationsNewDate.append(note);
                 notificationsNewUrgency.append(note);
                 notificationsNewUrgency.sort { $0.urgency.rawValue == $1.urgency.rawValue ? $0.timeToNotify < $1.timeToNotify : $0.urgency.rawValue < $1.urgency.rawValue };
                 notificationsNewDate.sort { $0.urgency == $1.urgency ? $0.timeToNotify < $1.timeToNotify : $0.urgency.rawValue < $1.urgency.rawValue };
+               
+                
                 note.person.noteList.notificationsNewDate.sort { $0.urgency == $1.urgency ? $0.timeToNotify < $1.timeToNotify : $0.urgency.rawValue < $1.urgency.rawValue };
             case .orderedSame          :
-                queue.filter() {$0 != note}
+                queue.filter{$0 != note}
+                note.person.noteList.queue.filter{$0 != note}
                 queue.sort{ $0.timeToNotify < $1.timeToNotify };
+                
+                
                 notificationsNewDate.append(note);
                 notificationsNewUrgency.append(note);
                 notificationsNewUrgency.sort { $0.urgency.rawValue == $1.urgency.rawValue ? $0.timeToNotify < $1.timeToNotify : $0.urgency.rawValue < $1.urgency.rawValue };
                 notificationsNewDate.sort { $0.urgency == $1.urgency ? $0.timeToNotify < $1.timeToNotify : $0.urgency.rawValue < $1.urgency.rawValue };
+                
                 note.person.noteList.notificationsNewDate.sort { $0.urgency == $1.urgency ? $0.timeToNotify < $1.timeToNotify : $0.urgency.rawValue < $1.urgency.rawValue };
             }
         }
@@ -337,8 +350,8 @@ theList.print()
 
 print("--------------------------------")
 
-var note1 = Prescription(person: matt, urgency: .red, numRepeat: 2, repeatHour: 1, repeatMinute: 0, dosage: 0.2, medicine: "Tylenol")
-var note2 = Prescription(person: robin, urgency: .green, numRepeat: 3, repeatHour: 0, repeatMinute: 1, dosage: 0.2, medicine: "Advil")
+var note1 = Prescription(person: matt, urgency: .red, numRepeat: 0, repeatHour: 0, repeatMinute: 0, dosage: 0.2, medicine: "Tylenol")
+var note2 = Prescription(person: robin, urgency: .green, numRepeat: 1, repeatHour: 0, repeatMinute: 1, dosage: 0.2, medicine: "Advil")
 var note3 = Lab(person: lilly, urgency: .yellow, testType: "bark", testResult: "passed")
 var note4 = Consultant(person: nash, urgency: .red , consultant: "Barry Lawson", department: "Richmond", note: "All good")
 
@@ -352,8 +365,23 @@ notList.add(toAdd: note4)
 notList.print()
 print("--------------------------------")
 theList.print()
+print("--------------------------------")
+print("--------------------------------")
+sleep(61)
+print("I am awake1-----********")
+notList.refresh()
+notList.print()
+print("--------------------------------")
+theList.print()
 
-
+print("--------------------------------")
+print("--------------------------------")
+sleep(61)
+print("I am awake2----*********")
+notList.refresh()
+notList.print()
+print("--------------------------------")
+theList.print()
 
 
 
