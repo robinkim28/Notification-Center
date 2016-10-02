@@ -11,7 +11,7 @@ import UIKit
 class CustomPatientTableCell: UITableViewCell {
     
 
-    @IBOutlet var firstName: UILabel!
+    @IBOutlet var name: UILabel!
     @IBOutlet var lastName: UILabel!
     @IBOutlet var age: UILabel!
     @IBOutlet var roomNumber: UILabel!

@@ -10,9 +10,8 @@ import UIKit
 
 class CustomNotificationTableCell: UITableViewCell {
 
-    @IBOutlet var descriptionLabel: UILabel!
+    @IBOutlet var descriptionLabel: UITextView!
     @IBOutlet var checkButton: UIButton!
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()

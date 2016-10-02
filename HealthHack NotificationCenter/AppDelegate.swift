@@ -14,11 +14,48 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     // Storing in a universal location
-    var notifications: NotificationList = NotificationList()
-    var patients: PatientList = PatientList()
+    var notifications = NotificationList()
+    var patients = PatientList()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        var matt = Patient(lastName: "Santa", firstName: "Matt", age: 21, roomNum: "119E")
+        var nash = Patient(lastName: "Rahman", firstName: "Nasheya", age: 20, roomNum: "120D")
+        var robin = Patient(lastName: "Kim", firstName: "Robin", age: 23, roomNum: "134A")
+        var lilly = Patient(lastName: "McSilly", firstName: "Lilly", age: 12, roomNum: "10A")
+        
+        print(matt)
+        print(nash)
+        print(robin)
+        print(lilly)
+        
+        patients.add(newPatient: matt)
+        patients.add(newPatient: nash)
+        patients.add(newPatient: robin)
+        patients.add(newPatient: lilly)
+        patients.print()
+        
+        print("--------------------------------")
+        
+        
+        var note1 = Consultant(person: nash, urgency: .red , consultant: "Billy Bob", department: "Richmond", note: "All good")
+        var note2 = Consultant(person: nash, urgency: .red , consultant: "Jacob Jones", department: "Richmond", note: "All good")
+        var note3 = Prescription(person: matt, urgency: .red, numRepeat: 2, repeatHour: 1, repeatMinute: 0, dosage: 0.2, medicine: "Tylenol")
+        var note4 = Prescription(person: robin, urgency: .green, numRepeat: 3, repeatHour: 0, repeatMinute: 1, dosage: 0.2, medicine: "Advil")
+        var note5 = Lab(person: lilly, urgency: .yellow, testType: "bark", testResult: "passed")
+        var note6 = Consultant(person: nash, urgency: .red , consultant: "Barry Lawson", department: "Richmond", note: "All good")
+        
+        
+        
+        notifications.add(toAdd: note1)
+        notifications.add(toAdd: note2)
+        notifications.add(toAdd: note3)
+        notifications.add(toAdd: note4)
+        notifications.add(toAdd: note5)
+        notifications.add(toAdd: note6)
+        
+        notifications.print()
+        print("--------------------------------")
+        patients.print()
         return true
     }
 

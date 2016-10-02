@@ -7,9 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		330B4BD61DA0C8690075DB33 /* Controller in Resources */ = {isa = PBXBuildFile; fileRef = 330B4BD31DA0C8690075DB33 /* Controller */; };
-		330B4BD71DA0C8690075DB33 /* Model in Resources */ = {isa = PBXBuildFile; fileRef = 330B4BD41DA0C8690075DB33 /* Model */; };
-		330B4BD81DA0C8690075DB33 /* View in Resources */ = {isa = PBXBuildFile; fileRef = 330B4BD51DA0C8690075DB33 /* View */; };
+		330B4BE51DA0F06C0075DB33 /* NotificationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330B4BE21DA0F06C0075DB33 /* NotificationTableViewController.swift */; };
+		330B4BE61DA0F06C0075DB33 /* PatientNotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330B4BE31DA0F06C0075DB33 /* PatientNotificationViewController.swift */; };
+		330B4BE71DA0F06C0075DB33 /* PatientTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330B4BE41DA0F06C0075DB33 /* PatientTableViewController.swift */; };
+		330B4BF21DA0F0720075DB33 /* Consultant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330B4BE81DA0F0720075DB33 /* Consultant.swift */; };
+		330B4BF31DA0F0720075DB33 /* Imaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330B4BE91DA0F0720075DB33 /* Imaging.swift */; };
+		330B4BF41DA0F0720075DB33 /* Lab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330B4BEA1DA0F0720075DB33 /* Lab.swift */; };
+		330B4BF61DA0F0720075DB33 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330B4BEC1DA0F0720075DB33 /* Notification.swift */; };
+		330B4BF71DA0F0720075DB33 /* NotificationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330B4BED1DA0F0720075DB33 /* NotificationList.swift */; };
+		330B4BF81DA0F0720075DB33 /* Patient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330B4BEE1DA0F0720075DB33 /* Patient.swift */; };
+		330B4BF91DA0F0720075DB33 /* PatientList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330B4BEF1DA0F0720075DB33 /* PatientList.swift */; };
+		330B4BFA1DA0F0720075DB33 /* Prescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330B4BF11DA0F0720075DB33 /* Prescription.swift */; };
+		330B4BFD1DA0F0770075DB33 /* CustomNotificationTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330B4BFB1DA0F0770075DB33 /* CustomNotificationTableCell.swift */; };
+		330B4BFE1DA0F0770075DB33 /* CustomPatientTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330B4BFC1DA0F0770075DB33 /* CustomPatientTableCell.swift */; };
 		33E3B2331DA08B6D006B9036 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E3B2321DA08B6D006B9036 /* AppDelegate.swift */; };
 		33E3B2381DA08B6D006B9036 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33E3B2361DA08B6D006B9036 /* Main.storyboard */; };
 		33E3B23A1DA08B6D006B9036 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33E3B2391DA08B6D006B9036 /* Assets.xcassets */; };
@@ -17,9 +27,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		330B4BD31DA0C8690075DB33 /* Controller */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Controller; sourceTree = "<group>"; };
-		330B4BD41DA0C8690075DB33 /* Model */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Model; sourceTree = "<group>"; };
-		330B4BD51DA0C8690075DB33 /* View */ = {isa = PBXFileReference; lastKnownFileType = folder; path = View; sourceTree = "<group>"; };
+		330B4BE21DA0F06C0075DB33 /* NotificationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotificationTableViewController.swift; path = ../Controller/NotificationTableViewController.swift; sourceTree = "<group>"; };
+		330B4BE31DA0F06C0075DB33 /* PatientNotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PatientNotificationViewController.swift; path = ../Controller/PatientNotificationViewController.swift; sourceTree = "<group>"; };
+		330B4BE41DA0F06C0075DB33 /* PatientTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PatientTableViewController.swift; path = ../Controller/PatientTableViewController.swift; sourceTree = "<group>"; };
+		330B4BE81DA0F0720075DB33 /* Consultant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Consultant.swift; path = ../Model/Consultant.swift; sourceTree = "<group>"; };
+		330B4BE91DA0F0720075DB33 /* Imaging.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Imaging.swift; path = ../Model/Imaging.swift; sourceTree = "<group>"; };
+		330B4BEA1DA0F0720075DB33 /* Lab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Lab.swift; path = ../Model/Lab.swift; sourceTree = "<group>"; };
+		330B4BEC1DA0F0720075DB33 /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Notification.swift; path = ../Model/Notification.swift; sourceTree = "<group>"; };
+		330B4BED1DA0F0720075DB33 /* NotificationList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotificationList.swift; path = ../Model/NotificationList.swift; sourceTree = "<group>"; };
+		330B4BEE1DA0F0720075DB33 /* Patient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Patient.swift; path = ../Model/Patient.swift; sourceTree = "<group>"; };
+		330B4BEF1DA0F0720075DB33 /* PatientList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PatientList.swift; path = ../Model/PatientList.swift; sourceTree = "<group>"; };
+		330B4BF01DA0F0720075DB33 /* patientListPlayGround.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = patientListPlayGround.playground; path = ../Model/patientListPlayGround.playground; sourceTree = "<group>"; };
+		330B4BF11DA0F0720075DB33 /* Prescription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Prescription.swift; path = ../Model/Prescription.swift; sourceTree = "<group>"; };
+		330B4BFB1DA0F0770075DB33 /* CustomNotificationTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomNotificationTableCell.swift; path = ../View/CustomNotificationTableCell.swift; sourceTree = "<group>"; };
+		330B4BFC1DA0F0770075DB33 /* CustomPatientTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomPatientTableCell.swift; path = ../View/CustomPatientTableCell.swift; sourceTree = "<group>"; };
 		33E3B22F1DA08B6D006B9036 /* HealthHack NotificationCenter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HealthHack NotificationCenter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		33E3B2321DA08B6D006B9036 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		33E3B2371DA08B6D006B9036 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -39,12 +60,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		330B4BDF1DA0F04B0075DB33 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				330B4BFB1DA0F0770075DB33 /* CustomNotificationTableCell.swift */,
+				330B4BFC1DA0F0770075DB33 /* CustomPatientTableCell.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		330B4BE01DA0F0540075DB33 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				330B4BE81DA0F0720075DB33 /* Consultant.swift */,
+				330B4BE91DA0F0720075DB33 /* Imaging.swift */,
+				330B4BEA1DA0F0720075DB33 /* Lab.swift */,
+				330B4BEC1DA0F0720075DB33 /* Notification.swift */,
+				330B4BED1DA0F0720075DB33 /* NotificationList.swift */,
+				330B4BEE1DA0F0720075DB33 /* Patient.swift */,
+				330B4BEF1DA0F0720075DB33 /* PatientList.swift */,
+				330B4BF01DA0F0720075DB33 /* patientListPlayGround.playground */,
+				330B4BF11DA0F0720075DB33 /* Prescription.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		330B4BE11DA0F05D0075DB33 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				330B4BE21DA0F06C0075DB33 /* NotificationTableViewController.swift */,
+				330B4BE31DA0F06C0075DB33 /* PatientNotificationViewController.swift */,
+				330B4BE41DA0F06C0075DB33 /* PatientTableViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		33E3B2261DA08B6C006B9036 = {
 			isa = PBXGroup;
 			children = (
-				330B4BD51DA0C8690075DB33 /* View */,
-				330B4BD41DA0C8690075DB33 /* Model */,
-				330B4BD31DA0C8690075DB33 /* Controller */,
 				33E3B2311DA08B6D006B9036 /* HealthHack NotificationCenter */,
 				33E3B2301DA08B6D006B9036 /* Products */,
 			);
@@ -61,6 +114,9 @@
 		33E3B2311DA08B6D006B9036 /* HealthHack NotificationCenter */ = {
 			isa = PBXGroup;
 			children = (
+				330B4BE11DA0F05D0075DB33 /* Controller */,
+				330B4BE01DA0F0540075DB33 /* Model */,
+				330B4BDF1DA0F04B0075DB33 /* View */,
 				33E3B2321DA08B6D006B9036 /* AppDelegate.swift */,
 				33E3B2361DA08B6D006B9036 /* Main.storyboard */,
 				33E3B2391DA08B6D006B9036 /* Assets.xcassets */,
@@ -132,10 +188,7 @@
 			files = (
 				33E3B23D1DA08B6D006B9036 /* LaunchScreen.storyboard in Resources */,
 				33E3B23A1DA08B6D006B9036 /* Assets.xcassets in Resources */,
-				330B4BD61DA0C8690075DB33 /* Controller in Resources */,
-				330B4BD71DA0C8690075DB33 /* Model in Resources */,
 				33E3B2381DA08B6D006B9036 /* Main.storyboard in Resources */,
-				330B4BD81DA0C8690075DB33 /* View in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,7 +199,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				330B4BFD1DA0F0770075DB33 /* CustomNotificationTableCell.swift in Sources */,
+				330B4BFE1DA0F0770075DB33 /* CustomPatientTableCell.swift in Sources */,
+				330B4BE51DA0F06C0075DB33 /* NotificationTableViewController.swift in Sources */,
+				330B4BF21DA0F0720075DB33 /* Consultant.swift in Sources */,
+				330B4BF61DA0F0720075DB33 /* Notification.swift in Sources */,
+				330B4BF71DA0F0720075DB33 /* NotificationList.swift in Sources */,
+				330B4BF91DA0F0720075DB33 /* PatientList.swift in Sources */,
+				330B4BE61DA0F06C0075DB33 /* PatientNotificationViewController.swift in Sources */,
+				330B4BFA1DA0F0720075DB33 /* Prescription.swift in Sources */,
+				330B4BE71DA0F06C0075DB33 /* PatientTableViewController.swift in Sources */,
+				330B4BF31DA0F0720075DB33 /* Imaging.swift in Sources */,
 				33E3B2331DA08B6D006B9036 /* AppDelegate.swift in Sources */,
+				330B4BF41DA0F0720075DB33 /* Lab.swift in Sources */,
+				330B4BF81DA0F0720075DB33 /* Patient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -64,7 +64,7 @@ class NotificationList{
         }
     }
     
-    func checked(toRemove: Notification){
+    public func checked(toRemove: Notification){
         //removes in urgency notifications array
         var index = 0
         for note in notificationsNewUrgency {
