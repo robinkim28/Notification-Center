@@ -1,22 +1,22 @@
 //
-//  NotificationTableViewController.swift
+//  PatientNotificationViewController.swift
 //  HealthHack NotificationCenter
 //
-//  Created by Matt Santa on 10/1/16.
+//  Created by Matt Santa on 10/2/16.
 //  Copyright © 2016 Matt Santa. All rights reserved.
 //
 
 import UIKit
 
-class NotificationTableViewController: UITableViewController {
+class PatientNotificationViewController: UIViewController {
 
     var notificationsNew: [Notification]!
     var notificationsOld: [Notification]!
     var patientsList: [Patient]!
     
-
+    
     override func viewWillAppear(_ animated: Bool) {
-        notificationsNew = (UIApplication.shared.delegate as! AppDelegate).notifications.notificationsNewUrgency
+        notificationsNew = (UIApplication.shared.delegate as! AppDelegate).patients.notifications.notificationsNewUrgency
         notificationsOld = (UIApplication.shared.delegate as! AppDelegate).notifications.notificationsOld
         
         patientsList = (UIApplication.shared.delegate as! AppDelegate).patients
@@ -52,7 +52,7 @@ class NotificationTableViewController: UITableViewController {
             
             cell.descriptionLabel!.text = "Completed"
             cell.checkButton.isHidden = true
-        
+            
         } else {
             cell.descriptionLabel!.text = self.notificationsOld[(indexPath as NSIndexPath).row - notificationsNew.count + 1].descriptionShort
             
@@ -85,7 +85,8 @@ class NotificationTableViewController: UITableViewController {
         
         tableView.reloadData()
     }
-    
-    
-}
 
+    
+
+
+}

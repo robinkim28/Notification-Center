@@ -14,8 +14,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     // Storing in a universal location
-    var notifications = NotificationList()
-    var patients = PatientList()
+    var notifications: NotificationList = NotificationList()
+    var patients: PatientList = PatientList()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Notification: CustomStringConvertible{
+class Notification: CustomStringConvertible {
     enum UrgencyLevels: Int{
         case red = 0, yellow, green
     }
