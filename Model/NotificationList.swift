@@ -7,7 +7,6 @@
 //
 
 import Foundation
-
 class NotificationList{
     
     var notificationsNewUrgency = [Notification]()
@@ -37,30 +36,33 @@ class NotificationList{
         }
     }
     
-        //DO A FUNCTION THAT CHECKS EVERY FEW SECONDS FROM THE QUEUE AND INSERTS IT INTO THE ARRAYS USING THAT INSERT FUNCTION
-        // use this line to keep refreshing:
-        //  var timer = NSTimer.scheduledTimerWithTimeInterval(60(//in sec//), target: self, selector: Selector("function" //<- function name//), userInfo: nil, repeats: true)
-        
-        func refresh(){
-            for note in queue{
-                switch NSDate().compare(note.timeToNotify) {
-                case .orderedDescending    :
-                    queue.filter() {$0 != note}
-                    queue.sort{ $0.timeToNotify < $1.timeToNotify };
-                    notificationsNewDate.append(note);
-                    notificationsNewUrgency.append(note);
-                    notificationsNewUrgency.sort { $0.urgency.rawValue == $1.urgency.rawValue ? $0.timeToNotify < $1.timeToNotify : $0.urgency.rawValue < $1.urgency.rawValue };
-                    notificationsNewDate.sort { $0.urgency == $1.urgency ? $0.timeToNotify < $1.timeToNotify : $0.urgency.rawValue < $1.urgency.rawValue };
-                case .orderedSame          :
-                    queue.filter() {$0 != note}
-                    queue.sort{ $0.timeToNotify < $1.timeToNotify };
-                    notificationsNewDate.append(note);
-                    notificationsNewUrgency.append(note);
-                    notificationsNewUrgency.sort { $0.urgency.rawValue == $1.urgency.rawValue ? $0.timeToNotify < $1.timeToNotify : $0.urgency.rawValue < $1.urgency.rawValue };
-                    notificationsNewDate.sort { $0.urgency == $1.urgency ? $0.timeToNotify < $1.timeToNotify : $0.urgency.rawValue < $1.urgency.rawValue };
-                }
+    //DO A FUNCTION THAT CHECKS EVERY FEW SECONDS FROM THE QUEUE AND INSERTS IT INTO THE ARRAYS USING THAT INSERT FUNCTION
+    // use this line to keep refreshing:
+    //  var timer = NSTimer.scheduledTimerWithTimeInterval(60(//in sec//), target: self, selector: Selector("function" //<- function name//), userInfo: nil, repeats: true)
+    
+    func refresh(){
+        for note in queue{
+            switch NSDate().compare(note.timeToNotify) {
+            case .orderedAscending     : break
+            case .orderedDescending    :
+                queue.filter() {$0 != note}
+                queue.sort{ $0.timeToNotify < $1.timeToNotify };
+                notificationsNewDate.append(note);
+                notificationsNewUrgency.append(note);
+                notificationsNewUrgency.sort { $0.urgency.rawValue == $1.urgency.rawValue ? $0.timeToNotify < $1.timeToNotify : $0.urgency.rawValue < $1.urgency.rawValue };
+                notificationsNewDate.sort { $0.urgency == $1.urgency ? $0.timeToNotify < $1.timeToNotify : $0.urgency.rawValue < $1.urgency.rawValue };
+                note.person.noteList.notificationsNewDate.sort { $0.urgency == $1.urgency ? $0.timeToNotify < $1.timeToNotify : $0.urgency.rawValue < $1.urgency.rawValue };
+            case .orderedSame          :
+                queue.filter() {$0 != note}
+                queue.sort{ $0.timeToNotify < $1.timeToNotify };
+                notificationsNewDate.append(note);
+                notificationsNewUrgency.append(note);
+                notificationsNewUrgency.sort { $0.urgency.rawValue == $1.urgency.rawValue ? $0.timeToNotify < $1.timeToNotify : $0.urgency.rawValue < $1.urgency.rawValue };
+                notificationsNewDate.sort { $0.urgency == $1.urgency ? $0.timeToNotify < $1.timeToNotify : $0.urgency.rawValue < $1.urgency.rawValue };
+                note.person.noteList.notificationsNewDate.sort { $0.urgency == $1.urgency ? $0.timeToNotify < $1.timeToNotify : $0.urgency.rawValue < $1.urgency.rawValue };
             }
         }
+    }
     
     func checked(toRemove: Notification){
         //removes in urgency notifications array
@@ -79,7 +81,7 @@ class NotificationList{
             //add new Prescription thing if needed
             if toRemove is Prescription{
                 if (toRemove as! Prescription).repeatNum != 0 {
-                    add(Prescription(toRemove))
+                    add(toAdd: Prescription(copyFrom: toRemove as! Prescription))
                 }
             }
         }
@@ -100,10 +102,13 @@ class NotificationList{
             //add new Prescription thing if needed
             if toRemove is Prescription{
                 if (toRemove as! Prescription).repeatNum != 0 {
-                    add(Prescription(toRemove))
+                    add(toAdd: Prescription(copyFrom: toRemove as! Prescription))
                 }
             }
         }
         
+    }
+    func print(){
+        dump(self)
     }
 }
