@@ -19,48 +19,26 @@ class NotificationList{
         //notificationsNewUrgency.append(toAdd)
         //notificationsNewDate.append(toAdd)
         
-        //if timetonotify is later, add it to the notifications queue IN ORDER
-        //if timetonotify is now, insert(toAdd: toAdd)
+        //if the time is later, add it to the notifications queue IN ORDER
         
-        switch NSDate().compare(toAdd.timeToNotify) {
-        case .orderedAscending     :
-            queue.append(toAdd); queue.sort{ $0.timeToNotify < $1.timeToNotify };
-        case .orderedDescending    :
-            notificationsNewDate.append(toAdd);
-            notificationsNewUrgency.append(toAdd);
-            notificationsNewUrgency.sort { $0.urgency.rawValue == $1.urgency.rawValue ? $0.timeToNotify < $1.timeToNotify : $0.urgency.rawValue < $1.urgency.rawValue };
-            notificationsNewDate.sort { $0.urgency == $1.urgency ? $0.timeToNotify < $1.timeToNotify : $0.urgency.rawValue < $1.urgency.rawValue };
-        case .orderedSame          :
-            notificationsNewDate.append(toAdd);
-            notificationsNewUrgency.append(toAdd);
-            notificationsNewUrgency.sort { $0.urgency.rawValue == $1.urgency.rawValue ? $0.timeToNotify < $1.timeToNotify : $0.urgency.rawValue < $1.urgency.rawValue };
-            notificationsNewDate.sort { $0.urgency == $1.urgency ? $0.timeToNotify < $1.timeToNotify : $0.urgency.rawValue < $1.urgency.rawValue };
-        }
+        //if the time is now, implement this insert function
+        //insert(toAdd: toAdd)
+    }
+    
+    func insert(toAdd: Notification){
+        // add a notification to both the date and urgency lists by insertion sort
+        //basically sorting it as you go
         
-        //DO A FUNCTION THAT CHECKS EVERY FEW SECONDS FROM THE QUEUE AND INSERTS IT INTO THE ARRAYS USING THAT INSERT FUNCTION
-        // use this line to keep refreshing:
-        //  var timer = NSTimer.scheduledTimerWithTimeInterval(60(//in sec//), target: self, selector: Selector("function" //<- function name//), userInfo: nil, repeats: true)
-        
-        func refresh(){
-            for note in queue{
-                switch NSDate().compare(note.timeToNotify) {
-                case .orderedDescending    :
-                    queue.filter() {$0 != note}
-                    queue.sort{ $0.timeToNotify < $1.timeToNotify };
-                    notificationsNewDate.append(note);
-                    notificationsNewUrgency.append(note);
-                    notificationsNewUrgency.sort { $0.urgency.rawValue == $1.urgency.rawValue ? $0.timeToNotify < $1.timeToNotify : $0.urgency.rawValue < $1.urgency.rawValue };
-                    notificationsNewDate.sort { $0.urgency == $1.urgency ? $0.timeToNotify < $1.timeToNotify : $0.urgency.rawValue < $1.urgency.rawValue };
-                case .orderedSame          :
-                    queue.filter() {$0 != note}
-                    queue.sort{ $0.timeToNotify < $1.timeToNotify };
-                    notificationsNewDate.append(note);
-                    notificationsNewUrgency.append(note);
-                    notificationsNewUrgency.sort { $0.urgency.rawValue == $1.urgency.rawValue ? $0.timeToNotify < $1.timeToNotify : $0.urgency.rawValue < $1.urgency.rawValue };
-                    notificationsNewDate.sort { $0.urgency == $1.urgency ? $0.timeToNotify < $1.timeToNotify : $0.urgency.rawValue < $1.urgency.rawValue };
-                }
-            }
-        }
+        /*for note in notificationsNewUrgency {
+         if note.urgency.rawValue < toAdd.urgency.rawValue {
+         
+         }
+         
+         }*/
+    }
+    
+    //DO A FUNCTION THAT CHECKS EVERY FEW SECONDS FROM THE QUEUE AND INSERTS IT INTO THE
+    //ARRAYS USING THAT INSERT FUNCTION
     
     func checked(toRemove: Notification){
         //removes in urgency notifications array
@@ -108,5 +86,4 @@ class NotificationList{
         }
     }
     
-    }
 }
