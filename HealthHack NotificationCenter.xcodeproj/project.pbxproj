@@ -1,0 +1,338 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		335527951DA0A07B00F50425 /* CustomNotificationTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335527941DA0A07B00F50425 /* CustomNotificationTableCell.swift */; };
+		335527971DA0A72100F50425 /* CustomPatientTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335527961DA0A72100F50425 /* CustomPatientTableCell.swift */; };
+		33E3B2331DA08B6D006B9036 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E3B2321DA08B6D006B9036 /* AppDelegate.swift */; };
+		33E3B2351DA08B6D006B9036 /* NotificationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E3B2341DA08B6D006B9036 /* NotificationTableViewController.swift */; };
+		33E3B2381DA08B6D006B9036 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33E3B2361DA08B6D006B9036 /* Main.storyboard */; };
+		33E3B23A1DA08B6D006B9036 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33E3B2391DA08B6D006B9036 /* Assets.xcassets */; };
+		33E3B23D1DA08B6D006B9036 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33E3B23B1DA08B6D006B9036 /* LaunchScreen.storyboard */; };
+		33E3B2451DA08D83006B9036 /* PatientTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E3B2441DA08D83006B9036 /* PatientTableViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		335527941DA0A07B00F50425 /* CustomNotificationTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNotificationTableCell.swift; sourceTree = "<group>"; };
+		335527961DA0A72100F50425 /* CustomPatientTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPatientTableCell.swift; sourceTree = "<group>"; };
+		33E3B22F1DA08B6D006B9036 /* HealthHack NotificationCenter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HealthHack NotificationCenter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		33E3B2321DA08B6D006B9036 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		33E3B2341DA08B6D006B9036 /* NotificationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTableViewController.swift; sourceTree = "<group>"; };
+		33E3B2371DA08B6D006B9036 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		33E3B2391DA08B6D006B9036 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		33E3B23C1DA08B6D006B9036 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		33E3B23E1DA08B6D006B9036 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		33E3B2441DA08D83006B9036 /* PatientTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientTableViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		33E3B22C1DA08B6C006B9036 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		335527981DA0A73500F50425 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				335527961DA0A72100F50425 /* CustomPatientTableCell.swift */,
+				335527941DA0A07B00F50425 /* CustomNotificationTableCell.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		3355279A1DA0B5FE00F50425 /* Control */ = {
+			isa = PBXGroup;
+			children = (
+				33E3B2441DA08D83006B9036 /* PatientTableViewController.swift */,
+				33E3B2341DA08B6D006B9036 /* NotificationTableViewController.swift */,
+			);
+			name = Control;
+			sourceTree = "<group>";
+		};
+		33E3B2261DA08B6C006B9036 = {
+			isa = PBXGroup;
+			children = (
+				33E3B2311DA08B6D006B9036 /* HealthHack NotificationCenter */,
+				33E3B2301DA08B6D006B9036 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		33E3B2301DA08B6D006B9036 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				33E3B22F1DA08B6D006B9036 /* HealthHack NotificationCenter.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		33E3B2311DA08B6D006B9036 /* HealthHack NotificationCenter */ = {
+			isa = PBXGroup;
+			children = (
+				3355279A1DA0B5FE00F50425 /* Control */,
+				335527981DA0A73500F50425 /* View */,
+				33E3B2321DA08B6D006B9036 /* AppDelegate.swift */,
+				33E3B2361DA08B6D006B9036 /* Main.storyboard */,
+				33E3B2391DA08B6D006B9036 /* Assets.xcassets */,
+				33E3B23B1DA08B6D006B9036 /* LaunchScreen.storyboard */,
+				33E3B23E1DA08B6D006B9036 /* Info.plist */,
+			);
+			path = "HealthHack NotificationCenter";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		33E3B22E1DA08B6C006B9036 /* HealthHack NotificationCenter */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 33E3B2411DA08B6D006B9036 /* Build configuration list for PBXNativeTarget "HealthHack NotificationCenter" */;
+			buildPhases = (
+				33E3B22B1DA08B6C006B9036 /* Sources */,
+				33E3B22C1DA08B6C006B9036 /* Frameworks */,
+				33E3B22D1DA08B6C006B9036 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "HealthHack NotificationCenter";
+			productName = "HealthHack NotificationCenter";
+			productReference = 33E3B22F1DA08B6D006B9036 /* HealthHack NotificationCenter.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		33E3B2271DA08B6C006B9036 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0800;
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = "Matt Santa";
+				TargetAttributes = {
+					33E3B22E1DA08B6C006B9036 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = YTY8G92XVH;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 33E3B22A1DA08B6C006B9036 /* Build configuration list for PBXProject "HealthHack NotificationCenter" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 33E3B2261DA08B6C006B9036;
+			productRefGroup = 33E3B2301DA08B6D006B9036 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				33E3B22E1DA08B6C006B9036 /* HealthHack NotificationCenter */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		33E3B22D1DA08B6C006B9036 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				33E3B23D1DA08B6D006B9036 /* LaunchScreen.storyboard in Resources */,
+				33E3B23A1DA08B6D006B9036 /* Assets.xcassets in Resources */,
+				33E3B2381DA08B6D006B9036 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		33E3B22B1DA08B6C006B9036 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				33E3B2351DA08B6D006B9036 /* NotificationTableViewController.swift in Sources */,
+				335527971DA0A72100F50425 /* CustomPatientTableCell.swift in Sources */,
+				33E3B2451DA08D83006B9036 /* PatientTableViewController.swift in Sources */,
+				335527951DA0A07B00F50425 /* CustomNotificationTableCell.swift in Sources */,
+				33E3B2331DA08B6D006B9036 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		33E3B2361DA08B6D006B9036 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				33E3B2371DA08B6D006B9036 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		33E3B23B1DA08B6D006B9036 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				33E3B23C1DA08B6D006B9036 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		33E3B23F1DA08B6D006B9036 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		33E3B2401DA08B6D006B9036 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		33E3B2421DA08B6D006B9036 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = YTY8G92XVH;
+				INFOPLIST_FILE = "HealthHack NotificationCenter/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Matt-Santa.HealthHack-NotificationCenter";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		33E3B2431DA08B6D006B9036 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = YTY8G92XVH;
+				INFOPLIST_FILE = "HealthHack NotificationCenter/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Matt-Santa.HealthHack-NotificationCenter";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		33E3B22A1DA08B6C006B9036 /* Build configuration list for PBXProject "HealthHack NotificationCenter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				33E3B23F1DA08B6D006B9036 /* Debug */,
+				33E3B2401DA08B6D006B9036 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		33E3B2411DA08B6D006B9036 /* Build configuration list for PBXNativeTarget "HealthHack NotificationCenter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				33E3B2421DA08B6D006B9036 /* Debug */,
+				33E3B2431DA08B6D006B9036 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 33E3B2271DA08B6C006B9036 /* Project object */;
+}
