@@ -13,7 +13,7 @@ class Patient: CustomStringConvertible{
   let firstName: String;
   let age: Int;
   let roomNum: String;
-  //let noteList: NotificationList;
+  var noteList: NotificationList;
 
   // date format should be in "yyyy-MM-dd" when passing in
     init(lastName: String, firstName: String, age: Int, roomNum: String /*noteList: NotificationList*/){
@@ -26,7 +26,7 @@ class Patient: CustomStringConvertible{
     dateFormatter.dateFormat = "yyyy-MM-dd";
 
     self.roomNum = roomNum;
-    //self.noteList = noteList;
+    self.noteList = noteList;
     
   }
     var description: String{
