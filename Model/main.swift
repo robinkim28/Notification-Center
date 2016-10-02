@@ -9,8 +9,9 @@
 import Foundation
 
 var notes = NotificationList()
-//notes.add(toAdd:Notification(notify: true, urgentLevel: .red))
-//notes.add(toAdd:Notification(notify: false,urgentLevel: .yellow))
+//notes.add(toAdd:Notification(notify: true, urgentLevel: .red, notifyTime: NSDate() as Date))
+//notes.add(toAdd:Notification(notify: false,urgentLevel: .yellow, notifyTime: NSDate() as Date))
 notes.printArrays()
-notes.checked(toRemove:notes.notificationsNewUrgency[1])
+//print(notes.notificationsNewUrgency[1].descriptionLong)
+//notes.checked(toRemove:notes.notificationsNewUrgency[1])
 notes.printArrays()
