@@ -12,14 +12,12 @@ class PatientNotificationViewController: UIViewController {
 
     var notificationsNew: [Notification]!
     var notificationsOld: [Notification]!
-    var patientsList: [Patient]!
+    var patient: Patient!
     
     
     override func viewWillAppear(_ animated: Bool) {
-        notificationsNew = (UIApplication.shared.delegate as! AppDelegate).patients.notifications.notificationsNewUrgency
-        notificationsOld = (UIApplication.shared.delegate as! AppDelegate).notifications.notificationsOld
-        
-        patientsList = (UIApplication.shared.delegate as! AppDelegate).patients
+        notificationsNew = patient.noteList.notificationsNewUrgency
+        notificationsOld = patient.noteList.notificationsOld
         
         tableView!.reloadData()
         
@@ -36,7 +34,7 @@ class PatientNotificationViewController: UIViewController {
         
         if ((indexPath as NSIndexPath).row < notificationsNew.count) {
             // Setting the cell text
-            cell.descriptionLabel!.text = self.notificationsNew[(indexPath as NSIndexPath).row].descriptionShort
+            cell.descriptionLabel!.text = self.notificationsNew[(indexPath as NSIndexPath).row].descriptionLong
             
             // Setting button title for cell
             var title: String
@@ -54,7 +52,7 @@ class PatientNotificationViewController: UIViewController {
             cell.checkButton.isHidden = true
             
         } else {
-            cell.descriptionLabel!.text = self.notificationsOld[(indexPath as NSIndexPath).row - notificationsNew.count + 1].descriptionShort
+            cell.descriptionLabel!.text = self.notificationsOld[(indexPath as NSIndexPath).row - notificationsNew.count + 1].descriptionLong
             
             var title: String
             if (notificationsOld[(indexPath as NSIndexPath).row - notificationsNew.count + 1].done == true) {
@@ -78,9 +76,9 @@ class PatientNotificationViewController: UIViewController {
         var index = sender.tag
         
         if (index! < notificationsNew.count) {
-            checked(toRemove: notificationsNew[index], pl: patientsList)
+            checked(toRemove: notificationsNew[index])
         } else {
-            checked(toRemove: notificationsOld[index - notificationsNew.count - 1], pl: patientsList)
+            checked(toRemove: notificationsOld[index - notificationsNew.count - 1])
         }
         
         tableView.reloadData()
