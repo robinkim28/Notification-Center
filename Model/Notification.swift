@@ -8,11 +8,13 @@
 
 import Foundation
 
-class Notification: CustomStringConvertible {
+class Notification: CustomStringConvertible{
     enum UrgencyLevels: Int{
         case red = 0, yellow, green
     }
     
+    static var indexTotal = 0
+    let indexDat: Int
     let urgency: UrgencyLevels
     let subscribe: Bool
     let done: Bool
@@ -20,25 +22,21 @@ class Notification: CustomStringConvertible {
     let dateAndTimeCreated:NSDate = NSDate()
     let timeToNotify: Date
     
-    let person: Patient
+    //let person: Patient
     
-    init(person: Patient, notify: Bool, urgentLevel: UrgencyLevels, notifyTime: Date){
-        self.person = person
+    //init(person: Patient, notifiy: Bool, urgentLevelSpecified: UrgencyLevels){
+    init(notify: Bool, urgentLevel: UrgencyLevels, notifyTime: Date){
+        //self.person = person
         subscribe = notify
         urgency = urgentLevel
         done = false
         timeToNotify = notifyTime
+        Notification.indexTotal = Notification.indexTotal + 1
+        indexDat = Notification.indexTotal
+        
     }
     
     var description: String {
-        return "\(person.description) needs care in room \(person.roomNum)"
-    }
-    
-    var descriptionLong: String {
-        return description
-    }
-    
-    var descriptionShort: String {
-        return description
+        return "Nasheya Rahman \(indexDat) \(urgency)"
     }
 }
